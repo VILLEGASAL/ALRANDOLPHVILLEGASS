@@ -4,701 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AL RANDOLPH VILLEGAS</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #DFD0B8; /* Primary text color */
-            background-color: #222831; /* Main background */
-        }
-
-        /* Header */
-        header {
-            background: #222831; /* Darker background */
-            color: #DFD0B8; /* Light text */
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Darker shadow */
-            transition: background 0.3s ease-in-out;
-            height: 60px;
-            box-sizing: border-box;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #DFD0B8; /* Logo text color */
-        }
-
-        /* Incognito Logo SVG */
-        .incognito-icon {
-            width: 32px;
-            height: 32px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #DFD0B8; /* Light text for links */
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #222831; /* Dark text on hover */
-            background: #DFD0B8; /* Light background on hover */
-        }
-
-        .nav-links a.active {
-            color: #222831; /* Dark text for active link */
-            background: #DFD0B8; /* Light background for active link */
-        }
-
-        /* Mobile menu toggle */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #DFD0B8; /* Light color for toggle */
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .nav-links.mobile-open {
-            display: flex;
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 8rem 0 4rem;
-            text-align: center;
-            background: #393E46; /* Secondary background for hero */
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #DFD0B8; /* Light text for hero */
-        }
-
-        .hero-content {
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-image {
-            width: 250px;
-            height: 250px;
-            margin: 0 auto 2rem;
-            background: #948979; /* Muted accent for image placeholder */
-            border: 3px dashed #DFD0B8; /* Light dashed border */
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #222831; /* Dark text inside placeholder */
-            font-size: 0.9rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .hero-image:hover {
-            border-color: #DFD0B8; /* Keep light on hover */
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Darker shadow */
-        }
-
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent); /* Subtle shine */
-            transform: rotate(45deg);
-            animation: shine 3s ease-in-out infinite;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #DFD0B8; /* Light text */
-            animation: slideInLeft 1s ease-out 0.3s both;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #DFD0B8; /* Light text */
-            margin-bottom: 2rem;
-            animation: slideInRight 1s ease-out 0.6s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #948979; /* Accent color for buttons */
-            color: #222831; /* Dark text on accent button */
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            animation: slideInUp 1s ease-out 0.9s both;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            background: #DFD0B8; /* Lighter accent on hover */
-            color: #222831; /* Keep dark text */
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Darker shadow */
-        }
-
-        /* Keyframe Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes shine {
-            0% {
-                left: -100%;
-            }
-            50% {
-                left: 100%;
-            }
-            100% {
-                left: 100%;
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-
-        .cta-button {
-            animation: bounce 0.5s infinite;
-        }
-
-        .cta-button:first-of-type {
-            animation-delay: 0s;
-        }
-
-        .cta-button:last-of-type {
-            animation-delay: 0.25s;
-        }
-
-        /* Sections */
-        section {
-            padding: 4rem 0;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #DFD0B8; /* Light text for titles */
-        }
-
-        /* About Section */
-        .about {
-            background: #393E46; /* Secondary background */
-            color: #DFD0B8;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-       .about-image {
-            width: 300px;
-            height: 300px;
-            background: #948979; /* Accent for image placeholder */
-            border: 2px dashed #DFD0B8; /* Light border */
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #222831; /* Dark text inside placeholder */
-            font-size: 1rem;
-            text-align: center;
-            transition: border-color 0.3s;
-            overflow: hidden;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .about-image:hover {
-            border-color: #DFD0B8; /* Keep light on hover */
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #DFD0B8; /* Light text */
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            width: 100%;
-            border: 2px solid #948979; /* Accent border */
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            background: #393E46; /* Secondary background for cards */
-            color: #DFD0B8;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-        }
-
-        .project-image {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #948979; /* Accent for image placeholder */
-            border-bottom: 2px solid #948979; /* Accent border */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #222831; /* Dark text inside placeholder */
-            font-size: 1rem;
-            text-align: center;
-            transition: background-color 0.3s;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .project-image:hover {
-            background: #DFD0B8; /* Lighter accent on hover */
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #DFD0B8; /* Light text */
-        }
-
-        .project-card p {
-            color: #DFD0B8; /* Light text */
-            margin-bottom: 1.5rem;
-        }
-
-        .project-link {
-            color: #DFD0B8; /* Light link text */
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 2px solid #948979; /* Accent underline */
-            padding-bottom: 2px;
-        }
-
-        .project-link:hover {
-            color: #948979; /* Accent on hover */
-        }
-
-        /* Skills Section */
-        .skills {
-            background: #222831; /* Main background */
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: #393E46; /* Secondary background */
-            padding: 2rem;
-            border-radius: 10px;
-            border: 1px solid #948979; /* Accent border */
-            color: #DFD0B8;
-        }
-
-        .skill-category h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: #DFD0B8; /* Light text */
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-icon {
-            width: 24px;
-            height: 24px;
-            fill: #DFD0B8; /* Light color for SVG icons */
-        }
-
-        .skill-list {
-            list-style: none;
-        }
-
-        .skill-list li {
-            padding: 0.5rem 0;
-            color: #DFD0B8; /* Light text */
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-list li::before {
-            content: "▸";
-            color: #948979; /* Accent color for bullet */
-            font-weight: bold;
-        }
-
-        /* New Section Styles - Work Experience & Certifications */
-        .experience-item, .certification-item {
-            background: #393E46; /* Secondary background */
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 1px solid #948979; /* Accent border */
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Darker shadow */
-            transition: transform 0.3s ease;
-            color: #DFD0B8;
-        }
-
-        .experience-item:hover, .certification-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-        }
-
-        .experience-item h3, .certification-item h3 {
-            font-size: 1.4rem;
-            color: #DFD0B8; /* Light text */
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-item p, .certification-item p {
-            font-size: 1rem;
-            color: #DFD0B8; /* Light text */
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-item ul, .certification-item ul {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .experience-item ul li, .certification-item ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #DFD0B8; /* Light text */
-        }
-
-        .experience-item ul li::before, .certification-item ul li::before {
-            content: '•';
-            color: #948979; /* Accent color for bullet */
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
-            line-height: 1;
-        }
-        
-        .certification-item a {
-            color: #DFD0B8; /* Light link text */
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 2px solid #948979; /* Accent underline */
-            padding-bottom: 2px;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-
-        .certification-item a:hover {
-            color: #948979; /* Accent on hover */
-        }
-
-
-        /* Contact Section */
-        .contact {
-            background: #222831; /* Main background */
-            color: #DFD0B8;
-        }
-        .contact-content {
-            text-align: center;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-item strong {
-            color: #DFD0B8; /* Light text */
-        }
-
-        .contact-item a {
-            color: #DFD0B8; /* Light text for links */
-            text-decoration: none;
-        }
-
-        .contact-item a:hover {
-            color: #948979; /* Accent on hover */
-        }
-
-        /* Footer */
-        footer {
-            background: #222831; /* Dark background */
-            color: #DFD0B8; /* Light text */
-            text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid #393E46; /* Subtle border */
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: #222831; /* Dark background */
-                flex-direction: column;
-                padding: 1rem 2rem;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Darker shadow */
-            }
-
-            .nav-links.mobile-open {
-                display: flex;
-            }
-
-            .nav-links li {
-                margin: 0;
-            }
-
-            .nav-links a {
-                display: block;
-                padding: 1rem;
-                text-align: center;
-            }
-
-            .hero-image {
-                width: 150px;
-                height: 150px;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-                padding: 0 1rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-image {
-                width: 200px;
-                height: 200px;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero {
-                padding: 2rem 0;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">
+            <a href="#home" class="logo" style="text-decoration: none;">
                 A.R.V
-            </div>
+            </a>
             <ul class="nav-links">
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#certifications">Certifications</a></li>
@@ -707,7 +20,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact Me</a></li>
             </ul>
-            <button class="mobile-menu-toggle">☰</button>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
         </nav>
     </header>
 
@@ -715,13 +28,19 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-image">
-                        <img src="AL_ID_PIC.jpg" alt="AL_IMAGE">
-                    </div>
+                    <a href="#about">
+                        <div class="hero-image">
+                            <img src="AL_ID_PIC.jpg" alt="AL_IMAGE">
+                        </div>
+                    </a>
                     <h1>AL RANDOLPH VILLEGAS</h1>
                     <p>BACKEND DEVELOPER / COMPUTER ENGINEERING STUDENT</p>
-                    <a href="#contact" class="cta-button">Get In Touch</a>
-                    <a href="Resume.pdf" class="cta-button" download style="margin-left: 1rem;">Download CV</a>
+                    <a href="#contact" class="cta-button">
+                        <span class="button-inner">Get In Touch</span>
+                    </a>
+                    <a href="Resume.pdf" class="cta-button" download style="margin-left: 1rem;">
+                        <span class="button-inner">Download CV</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -747,9 +66,8 @@
                     <div class="certification-item">
                         <h3>Computer Systems Servicing National Certificate II</h3>
                         <p>TESDA | Issued: AUGUST 2025</p>
-                        <a href="#" target="_blank">View Credential</a>
-                    </div>
-                    
+                        <a href="#" target="_blank">View Credential</a> </div>
+
                 </div>
             </div>
         </section>
@@ -761,7 +79,7 @@
                     <div class="experience-item">
                         <h3>I.T Technician Intern</h3>
                         <p>Leyte Provincial Capitol</p>
-                        <p>Februaury 2025 - May 2025 </p>
+                        <p>February 2025 - May 2025 </p>
                         <p>(270 Hours)</p>
                         <ul>
                             <li>Set-up computer networks at municipal halls and schools</li>
@@ -797,7 +115,7 @@
                             <h3>E-Commerce Platform</h3>
                             <p>A full-featured e-commerce solution built with React and Node.js, featuring secure payments, inventory management, and real-time analytics.</p>
                             <a href="https://simplifiapp.onrender.com/" class="project-link" target="_blank">View Project</a>
-                            <a href="https://github.com/yourusername/ecommerce-platform" class="project-link" target="_blank">GitHub Repo</a>
+                            <a href="https://github.com/yourusername/ecommerce-platform" class="project-link" target="_blank" style="margin-left: 1rem;">GitHub Repo</a>
                         </div>
                     </div>
                 </div>
@@ -813,7 +131,7 @@
                             <svg class="skill-icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2L2 7v10c0 5.55 3.84 9.95 9 11 5.16-1.05 9-5.45 9-11V7l-10-5z"/>
                                 <path d="M12 7v10l7-7-7-7z"/>
-                            </svg>
+                            </svg> 
                             Frontend
                         </h3>
                         <ul class="skill-list">
@@ -866,7 +184,7 @@
                     <div class="contact-info">
                         <div class="contact-item">
                             <strong>Email</strong>
-                            <a href="mailto:john.doe@example.com">villegasalrandolph@gmail.com</a>
+                            <a href="mailto:villegasalrandolph@gmail.com">villegasalrandolph@gmail.com</a>
                         </div>
                         <div class="contact-item">
                             <strong>GitHub</strong>
@@ -878,7 +196,7 @@
                         </div>
                         <div class="contact-item">
                             <strong>Phone</strong>
-                            <a>0945-623-5800</a>
+                            <a href="tel:09456235800">0945-623-5800</a>
                         </div>
 
                     </div>
@@ -893,150 +211,6 @@
         </div>
     </footer>
 
-    <script>
-        // Add click effect to hero image
-        const heroImage = document.querySelector('.hero-image');
-        heroImage.addEventListener('click', function() {
-            this.style.animation = 'pulse 0.6s ease-in-out';
-            setTimeout(() => {
-                this.style.animation = 'float 6s ease-in-out infinite';
-            }, 600);
-        });
-
-        // Mobile menu toggle
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('mobile-open');
-            // Change button text based on menu state
-            if (navLinks.classList.contains('mobile-open')) {
-                mobileMenuToggle.textContent = '✕'; // Close icon
-            } else {
-                mobileMenuToggle.textContent = '☰'; // Hamburger icon
-            }
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                navLinks.classList.remove('mobile-open');
-                mobileMenuToggle.textContent = '☰'; // Reset to hamburger icon
-            });
-        });
-
-        // Smooth scrolling for navigation links with offset
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const target = document.querySelector(targetId);
-                const headerOffset = document.querySelector('header').offsetHeight; // Get dynamic header height
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-
-                // Manually set active class immediately after clicking a nav link
-                // This will override the scroll-based active class for a moment
-                document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Add active class to current section
-        function updateActiveNav() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-            const headerHeight = document.querySelector('header').offsetHeight;
-            
-            let current = '';
-            // Iterate through sections from bottom to top
-            for (let i = sections.length - 1; i >= 0; i--) {
-                const section = sections[i];
-                // Adjust sectionTop to account for header height
-                // We add a small offset (e.g., headerHeight + 5) to make sure the section is clearly below the header
-                // before it becomes active. This helps with sections that are very short or at the bottom.
-                const sectionTop = section.offsetTop - headerHeight - 1; 
-
-                // Check if the current scroll position is at or past the section's adjusted top
-                // AND if the section itself is visible on screen.
-                // The `scrollY + window.innerHeight / 2` checks if the middle of the viewport is within the section.
-                if (window.scrollY >= sectionTop - 10 && (section.getBoundingClientRect().top <= window.innerHeight / 2 && section.getBoundingClientRect().bottom >= window.innerHeight / 2)) {
-                     current = section.getAttribute('id');
-                     break; // Found the current section, no need to check further
-                }
-                // Fallback for contact section at the very bottom
-                if (section.id === 'contact' && (window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                    current = 'contact';
-                    break;
-                }
-            }
-
-
-            // Special handling for the "home" (hero) section when at the very top
-            if (window.scrollY < headerHeight + 50) { // If near the top, make sure 'home' is active
-                current = 'home';
-            }
-
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        // Update active nav on scroll
-        window.addEventListener('scroll', updateActiveNav);
-        
-        // Initial call to set active nav
-        updateActiveNav();
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = '#222831'; /* Stay dark */
-            } else {
-                header.style.background = '#222831'; /* Stay dark */
-            }
-        });
-
-        // --- Scroll Reveal Animation Logic ---
-        const scrollRevealSections = document.querySelectorAll('section');
-
-        const revealSection = () => {
-            const windowHeight = window.innerHeight;
-            scrollRevealSections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-
-                // Adjust this value to control when the animation triggers
-                // For example, 150 means when 150px of the section is visible
-                const revealPoint = 150; 
-
-                if (sectionTop < windowHeight - revealPoint) {
-                    section.classList.add('visible');
-                } else {
-                    // Optional: remove 'visible' class if you want the animation to re-play on scroll up
-                    // section.classList.remove('visible'); 
-                }
-            });
-        };
-
-        // Run on scroll
-        window.addEventListener('scroll', revealSection);
-
-        // Run on page load to reveal sections already in view
-        revealSection();
-
-        // Ensure hero section is visible on load
-        document.querySelector('#home').classList.add('visible');
-
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
