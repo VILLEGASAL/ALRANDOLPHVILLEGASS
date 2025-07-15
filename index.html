@@ -14,20 +14,23 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #fff;
+            color: #DFD0B8; /* Primary text color */
+            background-color: #222831; /* Main background */
         }
 
         /* Header */
         header {
-            background: #000;
-            color: #fff;
+            background: #222831; /* Darker background */
+            color: #DFD0B8; /* Light text */
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Darker shadow */
+            transition: background 0.3s ease-in-out;
+            height: 60px;
+            box-sizing: border-box;
         }
 
         nav {
@@ -45,6 +48,7 @@
             gap: 0.5rem;
             font-size: 1.5rem;
             font-weight: bold;
+            color: #DFD0B8; /* Logo text color */
         }
 
         /* Incognito Logo SVG */
@@ -60,7 +64,7 @@
         }
 
         .nav-links a {
-            color: #fff;
+            color: #DFD0B8; /* Light text for links */
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 5px;
@@ -69,13 +73,13 @@
         }
 
         .nav-links a:hover {
-            color: #000;
-            background: #fff;
+            color: #222831; /* Dark text on hover */
+            background: #DFD0B8; /* Light background on hover */
         }
 
         .nav-links a.active {
-            color: #000;
-            background: #fff;
+            color: #222831; /* Dark text for active link */
+            background: #DFD0B8; /* Light background for active link */
         }
 
         /* Mobile menu toggle */
@@ -83,7 +87,7 @@
             display: none;
             background: none;
             border: none;
-            color: #fff;
+            color: #DFD0B8; /* Light color for toggle */
             font-size: 1.5rem;
             cursor: pointer;
         }
@@ -101,13 +105,14 @@
 
         /* Hero Section */
         .hero {
-            padding: 8rem 0 4rem; /* Adjusted top padding to push content down from the navbar */
+            padding: 8rem 0 4rem;
             text-align: center;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            background: #393E46; /* Secondary background for hero */
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #DFD0B8; /* Light text for hero */
         }
 
         .hero-content {
@@ -118,13 +123,13 @@
             width: 250px;
             height: 250px;
             margin: 0 auto 2rem;
-            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
-            border: 3px dashed #ccc;
+            background: #948979; /* Muted accent for image placeholder */
+            border: 3px dashed #DFD0B8; /* Light dashed border */
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
+            color: #222831; /* Dark text inside placeholder */
             font-size: 0.9rem;
             text-align: center;
             position: relative;
@@ -142,9 +147,9 @@
         }
 
         .hero-image:hover {
-            border-color: #000;
+            border-color: #DFD0B8; /* Keep light on hover */
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Darker shadow */
         }
 
         .hero-image::before {
@@ -154,7 +159,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent); /* Subtle shine */
             transform: rotate(45deg);
             animation: shine 3s ease-in-out infinite;
         }
@@ -162,21 +167,21 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
-            color: #000;
+            color: #DFD0B8; /* Light text */
             animation: slideInLeft 1s ease-out 0.3s both;
         }
 
         .hero p {
             font-size: 1.2rem;
-            color: #666;
+            color: #DFD0B8; /* Light text */
             margin-bottom: 2rem;
             animation: slideInRight 1s ease-out 0.6s both;
         }
 
         .cta-button {
             display: inline-block;
-            background: #000;
-            color: #fff;
+            background: #948979; /* Accent color for buttons */
+            color: #222831; /* Dark text on accent button */
             padding: 1rem 2rem;
             text-decoration: none;
             border-radius: 5px;
@@ -202,9 +207,10 @@
         }
 
         .cta-button:hover {
-            background: #333;
+            background: #DFD0B8; /* Lighter accent on hover */
+            color: #222831; /* Keep dark text */
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Darker shadow */
         }
 
         /* Keyframe Animations */
@@ -309,18 +315,27 @@
         /* Sections */
         section {
             padding: 4rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #000;
+            color: #DFD0B8; /* Light text for titles */
         }
 
         /* About Section */
         .about {
-            background: #f9f9f9;
+            background: #393E46; /* Secondary background */
+            color: #DFD0B8;
         }
 
         .about-content {
@@ -333,13 +348,13 @@
        .about-image {
             width: 300px;
             height: 300px;
-            background: #f0f0f0;
-            border: 2px dashed #ccc;
+            background: #948979; /* Accent for image placeholder */
+            border: 2px dashed #DFD0B8; /* Light border */
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
+            color: #222831; /* Dark text inside placeholder */
             font-size: 1rem;
             text-align: center;
             transition: border-color 0.3s;
@@ -347,22 +362,20 @@
         }
 
         .about-image img {
-            
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
         }
 
-
         .about-image:hover {
-            border-color: #000;
+            border-color: #DFD0B8; /* Keep light on hover */
         }
 
         .about-text {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #555;
+            color: #DFD0B8; /* Light text */
         }
 
         /* Projects Section */
@@ -374,33 +387,29 @@
 
         .project-card {
             width: 100%;
-            border: 2px solid #000;
+            border: 2px solid #948979; /* Accent border */
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s;
-            background: #fff;
-            border: 2px solid #000;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s;
+            background: #393E46; /* Secondary background for cards */
+            color: #DFD0B8;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
         }
 
         .project-image {
             width: 100%;
-            /*height: 200px;*/
             overflow: hidden;
             position: relative;
-
-            background: #f0f0f0;
-            border-bottom: 2px solid #000;
+            background: #948979; /* Accent for image placeholder */
+            border-bottom: 2px solid #948979; /* Accent border */
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #999;
+            color: #222831; /* Dark text inside placeholder */
             font-size: 1rem;
             text-align: center;
             transition: background-color 0.3s;
@@ -413,7 +422,7 @@
         }
 
         .project-image:hover {
-            background: #e8e8e8;
+            background: #DFD0B8; /* Lighter accent on hover */
         }
 
         .project-content {
@@ -423,29 +432,29 @@
         .project-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #000;
+            color: #DFD0B8; /* Light text */
         }
 
         .project-card p {
-            color: #666;
+            color: #DFD0B8; /* Light text */
             margin-bottom: 1.5rem;
         }
 
         .project-link {
-            color: #000;
+            color: #DFD0B8; /* Light link text */
             text-decoration: none;
             font-weight: bold;
-            border-bottom: 2px solid #000;
+            border-bottom: 2px solid #948979; /* Accent underline */
             padding-bottom: 2px;
         }
 
         .project-link:hover {
-            color: #333;
+            color: #948979; /* Accent on hover */
         }
 
         /* Skills Section */
         .skills {
-            background: #f9f9f9;
+            background: #222831; /* Main background */
         }
 
         .skills-grid {
@@ -455,16 +464,17 @@
         }
 
         .skill-category {
-            background: #fff;
+            background: #393E46; /* Secondary background */
             padding: 2rem;
             border-radius: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #948979; /* Accent border */
+            color: #DFD0B8;
         }
 
         .skill-category h3 {
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
-            color: #000;
+            color: #DFD0B8; /* Light text */
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -473,6 +483,7 @@
         .skill-icon {
             width: 24px;
             height: 24px;
+            fill: #DFD0B8; /* Light color for SVG icons */
         }
 
         .skill-list {
@@ -481,7 +492,7 @@
 
         .skill-list li {
             padding: 0.5rem 0;
-            color: #666;
+            color: #DFD0B8; /* Light text */
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -489,11 +500,80 @@
 
         .skill-list li::before {
             content: "▸";
-            color: #000;
+            color: #948979; /* Accent color for bullet */
             font-weight: bold;
         }
 
+        /* New Section Styles - Work Experience & Certifications */
+        .experience-item, .certification-item {
+            background: #393E46; /* Secondary background */
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #948979; /* Accent border */
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Darker shadow */
+            transition: transform 0.3s ease;
+            color: #DFD0B8;
+        }
+
+        .experience-item:hover, .certification-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .experience-item h3, .certification-item h3 {
+            font-size: 1.4rem;
+            color: #DFD0B8; /* Light text */
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item p, .certification-item p {
+            font-size: 1rem;
+            color: #DFD0B8; /* Light text */
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item ul, .certification-item ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-item ul li, .certification-item ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #DFD0B8; /* Light text */
+        }
+
+        .experience-item ul li::before, .certification-item ul li::before {
+            content: '•';
+            color: #948979; /* Accent color for bullet */
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+        
+        .certification-item a {
+            color: #DFD0B8; /* Light link text */
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid #948979; /* Accent underline */
+            padding-bottom: 2px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .certification-item a:hover {
+            color: #948979; /* Accent on hover */
+        }
+
+
         /* Contact Section */
+        .contact {
+            background: #222831; /* Main background */
+            color: #DFD0B8;
+        }
         .contact-content {
             text-align: center;
         }
@@ -513,24 +593,25 @@
         }
 
         .contact-item strong {
-            color: #000;
+            color: #DFD0B8; /* Light text */
         }
 
         .contact-item a {
-            color: #666;
+            color: #DFD0B8; /* Light text for links */
             text-decoration: none;
         }
 
         .contact-item a:hover {
-            color: #000;
+            color: #948979; /* Accent on hover */
         }
 
         /* Footer */
         footer {
-            background: #000;
-            color: #fff;
+            background: #222831; /* Dark background */
+            color: #DFD0B8; /* Light text */
             text-align: center;
             padding: 2rem 0;
+            border-top: 1px solid #393E46; /* Subtle border */
         }
 
         /* Responsive Design */
@@ -545,10 +626,10 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: #000;
+                background: #222831; /* Dark background */
                 flex-direction: column;
                 padding: 1rem 2rem;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Darker shadow */
             }
 
             .nav-links.mobile-open {
@@ -620,6 +701,8 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#about">About Me</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact Me</a></li>
@@ -652,6 +735,40 @@
                     </div>
                     <div class="about-text">
                         <p>I am a computer engineering student with a passion for backend development. I enjoy solving logical related problems and working with data to create efficient and functional systems. I am continuously exploring new technologies, improving my coding skills, and learning best practices in software development. I have experience with Node.js, Express, and PostgreSQL, and I am eager to deepen my understanding of backend frameworks and database management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="certifications">
+            <div class="container">
+                <h2 class="section-title">Certifications</h2>
+                <div class="certification-grid">
+                    <div class="certification-item">
+                        <h3>Computer Systems Servicing National Certificate II</h3>
+                        <p>TESDA | Issued: AUGUST 2025</p>
+                        <a href="#" target="_blank">View Credential</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2 class="section-title">Work Experience / Exposure</h2>
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <h3>I.T Technician Intern</h3>
+                        <p>Leyte Provincial Capitol</p>
+                        <p>Februaury 2025 - May 2025 </p>
+                        <p>(270 Hours)</p>
+                        <ul>
+                            <li>Set-up computer networks at municipal halls and schools</li>
+                            <li>Troubleshoot network problems</li>
+                            <li>Set-up servers</li>
+                            <li>Troubleshoot software related problems</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -729,6 +846,9 @@
                             Tools & Technologies
                         </h3>
                         <ul class="skill-list">
+                            <li>Install and Configure Computer Network</li>
+                            <li>Install and Set-up Windows Server</li>
+                            <li>Set-up client-server network</li>
                             <li>Git / GitHub</li>
                             <li>Postman</li>
                         </ul>
@@ -736,6 +856,7 @@
                 </div>
             </div>
         </section>
+
 
         <section id="contact" class="contact">
             <div class="container">
@@ -788,26 +909,41 @@
 
         mobileMenuToggle.addEventListener('click', function() {
             navLinks.classList.toggle('mobile-open');
+            // Change button text based on menu state
+            if (navLinks.classList.contains('mobile-open')) {
+                mobileMenuToggle.textContent = '✕'; // Close icon
+            } else {
+                mobileMenuToggle.textContent = '☰'; // Hamburger icon
+            }
         });
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', function() {
                 navLinks.classList.remove('mobile-open');
+                mobileMenuToggle.textContent = '☰'; // Reset to hamburger icon
             });
         });
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for navigation links with offset
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                const headerOffset = document.querySelector('header').offsetHeight; // Get dynamic header height
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+
+                // Manually set active class immediately after clicking a nav link
+                // This will override the scroll-based active class for a moment
+                document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
             });
         });
 
@@ -815,15 +951,37 @@
         function updateActiveNav() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
+            const headerHeight = document.querySelector('header').offsetHeight;
             
             let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
+            // Iterate through sections from bottom to top
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = sections[i];
+                // Adjust sectionTop to account for header height
+                // We add a small offset (e.g., headerHeight + 5) to make sure the section is clearly below the header
+                // before it becomes active. This helps with sections that are very short or at the bottom.
+                const sectionTop = section.offsetTop - headerHeight - 1; 
+
+                // Check if the current scroll position is at or past the section's adjusted top
+                // AND if the section itself is visible on screen.
+                // The `scrollY + window.innerHeight / 2` checks if the middle of the viewport is within the section.
+                if (window.scrollY >= sectionTop - 10 && (section.getBoundingClientRect().top <= window.innerHeight / 2 && section.getBoundingClientRect().bottom >= window.innerHeight / 2)) {
+                     current = section.getAttribute('id');
+                     break; // Found the current section, no need to check further
                 }
-            });
+                // Fallback for contact section at the very bottom
+                if (section.id === 'contact' && (window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    current = 'contact';
+                    break;
+                }
+            }
+
+
+            // Special handling for the "home" (hero) section when at the very top
+            if (window.scrollY < headerHeight + 50) { // If near the top, make sure 'home' is active
+                current = 'home';
+            }
+
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
@@ -843,11 +1001,42 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 0, 0, 0.95)';
+                header.style.background = '#222831'; /* Stay dark */
             } else {
-                header.style.background = '#000';
+                header.style.background = '#222831'; /* Stay dark */
             }
         });
+
+        // --- Scroll Reveal Animation Logic ---
+        const scrollRevealSections = document.querySelectorAll('section');
+
+        const revealSection = () => {
+            const windowHeight = window.innerHeight;
+            scrollRevealSections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                // Adjust this value to control when the animation triggers
+                // For example, 150 means when 150px of the section is visible
+                const revealPoint = 150; 
+
+                if (sectionTop < windowHeight - revealPoint) {
+                    section.classList.add('visible');
+                } else {
+                    // Optional: remove 'visible' class if you want the animation to re-play on scroll up
+                    // section.classList.remove('visible'); 
+                }
+            });
+        };
+
+        // Run on scroll
+        window.addEventListener('scroll', revealSection);
+
+        // Run on page load to reveal sections already in view
+        revealSection();
+
+        // Ensure hero section is visible on load
+        document.querySelector('#home').classList.add('visible');
+
     </script>
 </body>
 </html>
