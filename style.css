@@ -445,7 +445,7 @@ section.visible {
     transition: background-color 0.3s;
 }
 
-.project-image img {
+.project-image video {
     width: 100%;
     height: auto;
     display: block;
