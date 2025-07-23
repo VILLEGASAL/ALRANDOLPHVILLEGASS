@@ -104,15 +104,15 @@ window.addEventListener('scroll', updateActiveNav);
 // Initial call to set active nav
 updateActiveNav();
 
-// Add scroll effect to header
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.style.background = '#222831'; /* Stay dark */
-    } else {
-        header.style.background = '#222831'; /* Stay dark */
-    }
-});
+// // Add scroll effect to header
+// window.addEventListener('scroll', function() {
+//     const header = document.querySelector('header');
+//     if (window.scrollY > 100) {
+//         header.style.background = '#222831'; /* Stay dark */
+//     } else {
+//         header.style.background = '#222831'; /* Stay dark */
+//     }
+// });
 
 // --- Scroll Reveal Animation Logic ---
 const scrollRevealSections = document.querySelectorAll('section');

@@ -1,4 +1,6 @@
-/* --- Core Styles (No Changes Unless Specified Below) --- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
+/* --- Core Styles --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,22 +8,22 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    color: #DFD0B8; /* Primary text color */
-    background-color: #222831; /* Main background */
+    color: #B3B3B3; /* Spotify light grey for primary text */
+    background-color: #191414; /* Spotify Black for main background */
 }
 
-/* Header */
+/* --- Header --- */
 header {
-    background: #222831; /* Darker background */
-    color: #DFD0B8; /* Light text */
+    background: #0C0C0C; /* Changed to #0C0C0C */
+    color: #B3B3B3;
     padding: 1rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Darker shadow */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     transition: background 0.3s ease-in-out;
     height: 60px;
     box-sizing: border-box;
@@ -40,9 +42,10 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #DFD0B8; /* Logo text color */
+    color: #1DB954;
 }
 
 .nav-links {
@@ -52,7 +55,8 @@ nav {
 }
 
 .nav-links a {
-    color: #DFD0B8; /* Light text for links */
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #B3B3B3;
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -61,13 +65,13 @@ nav {
 }
 
 .nav-links a:hover {
-    color: #222831; /* Dark text on hover */
-    background: #DFD0B8; /* Light background on hover */
+    color: #191414;
+    background: #1DB954;
 }
 
 .nav-links a.active {
-    color: #222831; /* Dark text for active link */
-    background: #DFD0B8; /* Light background for active link */
+    color: #191414;
+    background: #1DB954;
 }
 
 /* Mobile menu toggle */
@@ -75,7 +79,7 @@ nav {
     display: none;
     background: none;
     border: none;
-    color: #DFD0B8; /* Light color for toggle */
+    color: #1DB954;
     font-size: 1.5rem;
     cursor: pointer;
 }
@@ -84,7 +88,7 @@ nav {
     display: flex;
 }
 
-/* Main Content */
+/* --- Main Content --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -95,12 +99,12 @@ nav {
 .hero {
     padding: 8rem 0 4rem;
     text-align: center;
-    background: #393E46; /* Secondary background for hero */
+    background-color: #000000;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #DFD0B8; /* Light text for hero */
+    color: #B3B3B3;
 }
 
 .hero-content {
@@ -111,113 +115,113 @@ nav {
     width: 250px;
     height: 250px;
     margin: 0 auto 2rem;
-    background: none; /* No direct background, rely on img and border effect */
+    background: none;
     border-radius: 50%;
-    display: flex; /* Flexbox to center the actual image */
+    display: flex;
     align-items: center;
     justify-content: center;
-    position: relative; /* Needed for pseudo-elements */
-    overflow: hidden; /* Crucial to clip the gradient movement */
+    position: relative;
+    overflow: hidden;
     transition: all 0.3s ease;
     cursor: pointer;
     animation: float 6s ease-in-out infinite;
     box-sizing: border-box;
-    z-index: 1; /* Ensure image container is above its ::after */
+    z-index: 1;
 }
 
 .hero-image img {
-    /* Make the actual image slightly smaller to reveal the gradient border */
-    width: calc(100% - 8px); /* 4px border thickness, so 8px total reduction */
+    width: calc(100% - 8px);
     height: calc(100% - 8px);
     object-fit: cover;
     border-radius: 50%;
     position: relative;
-    z-index: 2; /* Ensure image is above its own ::after and ::before (shine) */
-    background-color: #948979; /* Add the placeholder background directly to the img */
+    z-index: 2;
+    background-color: #404040;
 }
 
-.hero-image::before { /* Existing shine effect, ensure it's on top of the image */
+.hero-image::before {
     content: '';
     position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent); /* Subtle shine */
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
     transform: rotate(45deg);
     animation: shine 3s ease-in-out infinite;
-    z-index: 3; /* Ensure shine is on top of image */
+    z-index: 3;
 }
 
-.hero-image::after { /* Pseudo-element for continuous gradient border for the IMAGE */
+.hero-image::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, #FF00FF, #8A2BE2, #00BFFF, #FF00FF); /* Neon gradient */
-    background-size: 400% 400%; /* Larger background to animate */
-    border-radius: 50%; /* Match image border-radius */
-    animation: gradientBorder 3s linear infinite; /* Animate the gradient */
-    z-index: -1; /* Place behind the actual image content */
+    background: linear-gradient(45deg, #1DB954, #1ED760, #1DB954);
+    background-size: 400% 400%;
+    border-radius: 50%;
+    animation: gradientBorder 3s linear infinite;
+    z-index: -1;
 }
 
 .hero h1 {
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: #DFD0B8;
+    color: #1DB954;
     animation: slideInLeft 1s ease-out 0.3s both;
 }
 
 .hero p {
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.2rem;
-    color: #DFD0B8;
+    color: #B3B3B3;
     margin-bottom: 2rem;
     animation: slideInRight 1s ease-out 0.6s both;
 }
 
 /* --- CTA Button Gradient Outline --- */
 .cta-button {
-    /* The button acts as the container for the gradient border */
     display: inline-block;
-    padding: 2px; /* This creates the space for the gradient border */
+    padding: 2px;
     text-decoration: none;
-    border-radius: 7px; /* Slightly more rounded than inner content for border effect */
+    border-radius: 7px;
     position: relative;
-    overflow: hidden; /* Crucial to clip the gradient movement */
-    z-index: 1; /* Ensure button container is above its ::after */
-    animation: slideInUp 1s ease-out 0.9s both; /* Initial slide-in */
-    background: none; /* No direct background on the outer container */
+    overflow: hidden;
+    z-index: 1;
+    animation: slideInUp 1s ease-out 0.9s both;
+    background: none;
 }
 
-.cta-button::after { /* Pseudo-element for the continuous gradient border */
+.cta-button::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, #FF00FF, #8A2BE2, #00BFFF, #FF00FF); /* Neon gradient */
-    background-size: 400% 400%; /* Larger background to animate */
-    border-radius: 7px; /* Match outer container border-radius */
-    animation: gradientBorder 3s linear infinite; /* Animate the gradient */
-    z-index: -1; /* Place behind the button's content area */
+    background: linear-gradient(45deg, #1DB954, #1ED760, #1DB954);
+    background-size: 400% 400%;
+    border-radius: 7px;
+    animation: gradientBorder 3s linear infinite;
+    z-index: -1;
 }
 
-/* The actual button content (text and solid background) */
 .cta-button .button-inner {
-    display: block; /* Important for padding and dimensions */
-    background: #948979; /* Solid accent color for the button's interior */
-    color: #222831; /* Dark text on solid background */
-    padding: 1rem 2rem; /* The actual padding of the button text */
-    border-radius: 5px; /* Match original button border-radius */
+    display: block;
+    background: #1DB954;
+    color: #191414;
+    padding: 1rem 2rem;
+    border-radius: 5px;
     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative; /* Needed for z-index with ::before (shine) */
-    z-index: 2; /* Ensure inner content is above the gradient border */
+    position: relative;
+    z-index: 2;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-.cta-button .button-inner::before { /* Existing shine effect on the inner content */
+.cta-button .button-inner::before {
     content: '';
     position: absolute;
     top: 0;
@@ -226,7 +230,7 @@ nav {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
     transition: left 0.5s;
-    z-index: 3; /* Ensure shine is above inner content */
+    z-index: 3;
 }
 
 .cta-button:hover .button-inner::before {
@@ -234,15 +238,14 @@ nav {
 }
 
 .cta-button:hover .button-inner {
-    background: #DFD0B8; /* Lighter accent on hover for the inner content */
-    color: #222831;
+    background: #1ED760;
+    color: #191414;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Darker shadow */
-    animation: bounce 0.5s infinite; /* Apply bounce only on hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    animation: bounce 0.5s infinite;
 }
 
-
-/* --- Keyframe Animations (No Changes) --- */
+/* --- Keyframe Animations --- */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -329,7 +332,6 @@ nav {
     }
 }
 
-/* New Keyframe Animation for Gradient Border (No Changes) */
 @keyframes gradientBorder {
     0% {
         background-position: 0% 50%;
@@ -342,7 +344,7 @@ nav {
     }
 }
 
-/* --- Other Sections (No Changes) --- */
+/* --- Other Sections --- */
 section {
     padding: 4rem 0;
     opacity: 0;
@@ -356,16 +358,17 @@ section.visible {
 }
 
 .section-title {
+    font-family: 'Roboto Condensed', sans-serif;
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: #DFD0B8;
+    color: #1DB954;
 }
 
 /* About Section */
 .about {
-    background: #393E46;
-    color: #DFD0B8;
+    background-color: #000000;
+    color: #B3B3B3;
 }
 
 .about-content {
@@ -378,13 +381,13 @@ section.visible {
 .about-image {
     width: 300px;
     height: 300px;
-    background: #948979;
-    border: 2px dashed #DFD0B8;
+    background: #404040;
+    border: 2px dashed #B3B3B3;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #222831;
+    color: #B3B3B3;
     font-size: 1rem;
     text-align: center;
     transition: border-color 0.3s;
@@ -399,13 +402,14 @@ section.visible {
 }
 
 .about-image:hover {
-    border-color: #DFD0B8;
+    border-color: #1DB954;
 }
 
 .about-text {
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #DFD0B8;
+    color: #B3B3B3;
 }
 
 /* Projects Section */
@@ -417,12 +421,12 @@ section.visible {
 
 .project-card {
     width: 100%;
-    border: 2px solid #948979;
+    border: 2px solid #404040;
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s;
-    background: #393E46;
-    color: #DFD0B8;
+    background: #282828;
+    color: #B3B3B3;
 }
 
 .project-card:hover {
@@ -434,12 +438,12 @@ section.visible {
     width: 100%;
     overflow: hidden;
     position: relative;
-    background: #948979;
-    border-bottom: 2px solid #948979;
+    background: #404040;
+    border-bottom: 2px solid #404040;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #222831;
+    color: #B3B3B3;
     font-size: 1rem;
     text-align: center;
     transition: background-color 0.3s;
@@ -452,7 +456,7 @@ section.visible {
 }
 
 .project-image:hover {
-    background: #DFD0B8;
+    background: #1DB954;
 }
 
 .project-content {
@@ -460,31 +464,34 @@ section.visible {
 }
 
 .project-card h3 {
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #DFD0B8;
+    color: #1DB954;
 }
 
 .project-card p {
-    color: #DFD0B8;
+    font-family: 'Open Sans', sans-serif;
+    color: #B3B3B3;
     margin-bottom: 1.5rem;
 }
 
 .project-link {
-    color: #DFD0B8;
+    font-family: 'Open Sans', sans-serif;
+    color: #B3B3B3;
     text-decoration: none;
     font-weight: bold;
-    border-bottom: 2px solid #948979;
+    border-bottom: 2px solid #1DB954;
     padding-bottom: 2px;
 }
 
 .project-link:hover {
-    color: #948979;
+    color: #1ED760;
 }
 
 /* Skills Section */
 .skills {
-    background: #222831;
+    background: #191414;
 }
 
 .skills-grid {
@@ -494,17 +501,18 @@ section.visible {
 }
 
 .skill-category {
-    background: #393E46;
+    background: #282828;
     padding: 2rem;
     border-radius: 10px;
-    border: 1px solid #948979;
-    color: #DFD0B8;
+    border: 1px solid #404040;
+    color: #B3B3B3;
 }
 
 .skill-category h3 {
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
-    color: #DFD0B8;
+    color: #1DB954;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -513,7 +521,7 @@ section.visible {
 .skill-icon {
     width: 24px;
     height: 24px;
-    fill: #DFD0B8;
+    fill: #1DB954;
 }
 
 .skill-list {
@@ -521,8 +529,9 @@ section.visible {
 }
 
 .skill-list li {
+    font-family: 'Open Sans', sans-serif;
     padding: 0.5rem 0;
-    color: #DFD0B8;
+    color: #B3B3B3;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -530,20 +539,20 @@ section.visible {
 
 .skill-list li::before {
     content: "▸";
-    color: #948979;
+    color: #1DB954;
     font-weight: bold;
 }
 
 /* New Section Styles - Work Experience & Certifications */
 .experience-item, .certification-item {
-    background: #393E46;
+    background: #282828;
     padding: 1.5rem;
     border-radius: 10px;
-    border: 1px solid #948979;
+    border: 1px solid #404040;
     margin-bottom: 1.5rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
-    color: #DFD0B8;
+    color: #B3B3B3;
 }
 
 .experience-item:hover, .certification-item:hover {
@@ -552,14 +561,16 @@ section.visible {
 }
 
 .experience-item h3, .certification-item h3 {
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.4rem;
-    color: #DFD0B8;
+    color: #1DB954;
     margin-bottom: 0.5rem;
 }
 
 .experience-item p, .certification-item p {
+    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
-    color: #DFD0B8;
+    color: #B3B3B3;
     margin-bottom: 0.5rem;
 }
 
@@ -569,15 +580,16 @@ section.visible {
 }
 
 .experience-item ul li, .certification-item ul li {
+    font-family: 'Open Sans', sans-serif;
     position: relative;
     padding-left: 1.5rem;
     margin-bottom: 0.5rem;
-    color: #DFD0B8;
+    color: #B3B3B3;
 }
 
 .experience-item ul li::before, .certification-item ul li::before {
     content: '•';
-    color: #948979;
+    color: #1DB954;
     position: absolute;
     left: 0;
     font-size: 1.2rem;
@@ -585,24 +597,24 @@ section.visible {
 }
 
 .certification-item a {
-    color: #DFD0B8;
+    font-family: 'Open Sans', sans-serif;
+    color: #B3B3B3;
     text-decoration: none;
     font-weight: bold;
-    border-bottom: 2px solid #948979;
+    border-bottom: 2px solid #1DB954;
     padding-bottom: 2px;
     display: inline-block;
     margin-top: 0.5rem;
 }
 
 .certification-item a:hover {
-    color: #948979;
+    color: #1ED760;
 }
-
 
 /* Contact Section */
 .contact {
-    background: #222831;
-    color: #DFD0B8;
+    background: #191414;
+    color: #B3B3B3;
 }
 .contact-content {
     text-align: center;
@@ -623,28 +635,31 @@ section.visible {
 }
 
 .contact-item strong {
-    color: #DFD0B8;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #1DB954;
 }
 
 .contact-item a {
-    color: #DFD0B8;
+    font-family: 'Open Sans', sans-serif;
+    color: #B3B3B3;
     text-decoration: none;
 }
 
 .contact-item a:hover {
-    color: #948979;
+    color: #1ED760;
 }
 
 /* Footer */
 footer {
-    background: #222831;
-    color: #DFD0B8;
+    background: #191414;
+    color: #B3B3B3;
     text-align: center;
     padding: 2rem 0;
-    border-top: 1px solid #393E46;
+    border-top: 1px solid #282828;
+    font-family: 'Open Sans', sans-serif;
 }
 
-/* Responsive Design */
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
     .mobile-menu-toggle {
         display: block;
@@ -656,7 +671,7 @@ footer {
         top: 100%;
         left: 0;
         right: 0;
-        background: #222831;
+        background: #0C0C0C; /* Changed to #0C0C0C */
         flex-direction: column;
         padding: 1rem 2rem;
         box-shadow: 0 2px 10px rgba(0,0,0,0.5);
@@ -677,8 +692,8 @@ footer {
     }
 
     .hero-image {
-        width: 150px;
-        height: 150px;
+        width: 250px;
+        height: 250px;
         margin-bottom: 1.5rem;
     }
 
@@ -691,7 +706,7 @@ footer {
         padding: 0 1rem;
     }
 
-    .cta-button .button-inner { /* Target the inner content for responsive padding */
+    .cta-button .button-inner {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
     }
@@ -701,6 +716,12 @@ footer {
         text-align: center;
     }
 
+    /* 👇 ADDED THIS FOR ABOUT IMAGE CENTERING 👇 */
+    .about-image {
+        margin: 0 auto; /* Centers block-level elements */
+    }
+    /* 👆 ADDED THIS FOR ABOUT IMAGE CENTERING 👆 */
+
     .contact-info {
         flex-direction: column;
         gap: 1rem;
@@ -709,8 +730,8 @@ footer {
 
 @media (max-width: 480px) {
     .hero-image {
-        width: 200px;
-        height: 200px;
+        width: 250px;
+        height: 250px;
     }
 
     .hero h1 {
