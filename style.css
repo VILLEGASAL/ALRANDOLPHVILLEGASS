@@ -211,8 +211,8 @@ nav {
 
 .cta-button .button-inner {
     display: block;
-    background: #1DB954;
-    color: #191414;
+    background: #000000;
+    color: #FFFFFF;
     padding: 1rem 2rem;
     border-radius: 5px;
     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
@@ -421,7 +421,7 @@ section.visible {
 
 .project-card {
     width: 100%;
-    border: 2px solid #404040;
+    border: 2px solid #1ED760;
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.3s;
@@ -504,7 +504,7 @@ section.visible {
     background: #282828;
     padding: 2rem;
     border-radius: 10px;
-    border: 1px solid #404040;
+    border: 1px solid #1ED760;
     color: #B3B3B3;
 }
 
@@ -548,7 +548,7 @@ section.visible {
     background: #282828;
     padding: 1.5rem;
     border-radius: 10px;
-    border: 1px solid #404040;
+    border: 1px solid #1ED760;
     margin-bottom: 1.5rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
