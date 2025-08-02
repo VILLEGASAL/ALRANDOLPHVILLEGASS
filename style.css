@@ -641,6 +641,7 @@ section.visible {
 
 .contact-item a {
     font-family: 'Open Sans', sans-serif;
+    font-size: 0.80rem;
     color: #B3B3B3;
     text-decoration: none;
 }
